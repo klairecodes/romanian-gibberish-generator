@@ -1,5 +1,6 @@
 import random
 import time
+import argparse
 
 vowels = 'aeiou'
 accented_vowels = 'ăâî'
@@ -64,14 +65,21 @@ def generate_gibberish(num_syllables):
 
 
 def main():
-    # for _ in range(20):
-        # num_syllables = random.randint(1,4)
-        # print(generate_gibberish(num_syllables))
-    for _ in range(1000):
-        # num_syllables = random.randint(1,3)
-        num_syllables = 2
+    parser = argparse.ArgumentParser(
+                    prog='rom_generator',
+                    description='Generates Romanian gibberish words.',
+                    epilog='Written by Klaire Curde.')
+
+    parser.add_argument('-n', type=int, dest='count', action='store', default=20, help='The number of words to generate.')
+    parser.add_argument('-s', type=int, dest='num_syllables', action='store', default=3, help='The maximum number of syllables each word should contain.')
+    parser.add_argument('-d', action='store_true', default=False, help='If set, adds a delay between each entry.')
+    args = parser.parse_args()
+
+    for _ in range(args.count):
+        num_syllables = args.num_syllables
         print(generate_gibberish(num_syllables))
-        # time.sleep(0.5)
+        if args.d:
+            time.sleep(0.5)
 
 
 if __name__ == "__main__":
