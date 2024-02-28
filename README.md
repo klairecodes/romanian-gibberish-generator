@@ -1,4 +1,4 @@
-[Româneşte](#Generatorul de Bolboroseală Românesc)
+[Româneşte](#generatorul-de-bolboroseală-românesc)
 
 # Romanian Gibberish Generator
 This is a silly script to generate Romanian words using the romanian alphabet and common digraphs and trigraphs. It can be easily modified for other languages.
